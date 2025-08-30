@@ -1,72 +1,126 @@
 # Manual QA Testing Guide
 
-Welcome to the QA testing guide for the Shopping Website project!  
-This document is designed to help you (or any team member) perform manual QA testing effectively.
+---
+
+## Executive Summary
+
+This guide outlines the standards and procedures for conducting manual Quality Assurance (QA) testing on the Shopping Website project. Its purpose is to ensure software quality, minimize defects, and deliver a seamless user experience. All QA team members and contributors are expected to adhere to these guidelines.
 
 ---
 
-## 1. What is QA Testing?
+## Objectives
 
-Quality Assurance (QA) testing ensures that the website works as expected and delivers a positive user experience. Manual QA involves a tester using the website just like a real user, following test cases, and reporting any bugs or issues found.
-
----
-
-## 2. How to Perform Manual QA Testing
-
-1. **Review Test Cases:**  
-   Start by reading the provided test cases (`ShoppingWebsite_TestCases.md`).
-
-2. **Set Up the Environment:**  
-   - Prepare browsers (e.g., Chrome, Firefox).
-   - Make sure the website is accessible and, if needed, login credentials are ready.
-
-3. **Execute Each Test Case:**  
-   - Follow each step exactly as written.
-   - Observe the website’s behavior.
-   - Compare actual results with expected ones.
-   - Record the outcome (pass/fail).
-
-4. **Document Issues:**  
-   - If something doesn’t work as expected, document the steps to reproduce, actual vs. expected results, and any error messages.
+- To verify the Shopping Website meets business requirements and user expectations.
+- To ensure all features function as intended across supported environments.
+- To document, track, and communicate defects effectively for timely resolution.
 
 ---
 
-## 3. How to Report Bugs
+## Manual QA Process
 
-When you find a bug, report it clearly:
+### 1. Review Test Artifacts
 
-- **Title:** A short, descriptive summary.
-- **Steps to Reproduce:** Numbered steps so anyone can follow and see the bug.
-- **Expected Result:** What should have happened.
-- **Actual Result:** What actually happened.
-- **Screenshots:** Attach images if possible.
-- **Environment:** Browser, OS, and device info.
+- Familiarize yourself with the project requirements and acceptance criteria.
+- Reference the master test case document (`ShoppingWebsite_TestCases.md`) for detailed scenarios.
+
+### 2. Prepare Test Environment
+
+- Confirm access to test environments and necessary credentials.
+- Test across supported browsers (e.g., Chrome, Firefox, Edge) and devices (desktop, mobile, tablet).
+- Ensure test data is available and reset as necessary.
+
+### 3. Execute Test Cases
+
+- Follow each test case step-by-step.
+- Record actual results and compare them against expected outcomes.
+- Mark each test case as Pass/Fail.
+- Note any deviations, errors, or unexpected behaviors.
+
+### 4. Exploratory & Negative Testing
+
+- Attempt scenarios outside standard test cases to uncover edge cases.
+- Validate input validation, error handling, and security flows.
+- Repeat critical scenarios as both authenticated and guest users.
+
+### 5. Regression Testing
+
+- Re-execute impacted test cases after bug fixes or new feature deployments.
+- Confirm resolved issues no longer occur and no new defects are introduced.
+
+---
+
+## Bug Reporting Standards
+
+When defects are identified, report using the template below for clarity and consistency:
+
+**Bug Report Template**
+
+| Field                | Description                                                                                 |
+|----------------------|---------------------------------------------------------------------------------------------|
+| **Title**            | Clear, concise summary (e.g., “Add to Cart button unresponsive on mobile”)                  |
+| **Environment**      | Browser, device, OS, app version (e.g., Chrome 116, Android 13, v1.0.3)                     |
+| **Preconditions**    | State required before reproducing the issue (e.g., “User logged in; product in stock”)      |
+| **Steps to Reproduce** | Numbered list of actions to replicate the issue                                             |
+| **Expected Result**  | What should happen                                                                          |
+| **Actual Result**    | What actually happens                                                                       |
+| **Screenshots/Logs** | Visual or log attachments (if applicable)                                                   |
+| **Severity/Priority**| (Optional) Indicate business impact (e.g., Critical, Major, Minor)                          |
 
 **Example:**
+
 ```
-Title: Unable to add product to cart
+Title: Checkout fails with error 500
+
+Environment: Firefox 120, Windows 10
+
+Preconditions:
+- User logged in
+- Cart contains at least one product
 
 Steps to Reproduce:
-1. Login as a valid user
-2. Browse to a product page
-3. Click 'Add to Cart'
+1. Go to Cart page
+2. Click 'Checkout'
+3. Fill in valid shipping details
+4. Click 'Place Order'
 
-Expected Result: Product should be added to cart.
-Actual Result: Nothing happens, and no error message is shown.
+Expected Result: Order confirmation page appears, and order is created.
+Actual Result: Error page is displayed (500 Server Error).
 
-Screenshot: [attach image]
-Environment: Chrome 116, Windows 11
+Screenshot: [attach file]
+Severity: Critical
 ```
 
 ---
 
-## 4. Tips & Best Practices
+## Communication & Collaboration
 
-- Test on multiple browsers and devices.
-- Log out and repeat some scenarios as a guest user.
-- Try invalid inputs and edge cases.
-- Keep communication clear and respectful.
-- Always retest bugs after fixes.
+- Use descriptive language in all reports and documentation.
+- Tag relevant team members on critical or blocking defects.
+- Participate in regular QA stand-ups or sync meetings.
+- Always retest and update defect tickets after fixes.
+
+---
+
+## Glossary
+
+- **QA (Quality Assurance):** Activities ensuring the product meets quality standards.
+- **Test Case:** A set of actions and expected results to verify a feature/requirement.
+- **Regression Testing:** Re-testing after updates to confirm unchanged areas still work.
+- **Severity:** The impact level of a defect (Critical, Major, Minor, Trivial).
+- **Priority:** The urgency with which a defect should be addressed.
+
+---
+
+## Best Practices
+
+- Maintain test documentation up-to-date.
+- Communicate blockers or risks early.
+- Practice unbiased, user-centric testing.
+- Respectful, constructive feedback is encouraged.
+
+---
+
+**For questions, improvements, or additional support, contact the QA Lead or open a discussion in the repository.**
 
 ---
 
